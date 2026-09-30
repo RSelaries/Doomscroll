@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bdsvhte003hxj"]
+
+[ext_resource type="Script" uid="uid://cepwthldfgcp6" path="res://main/stats_bar.gd" id="1_32cco"]
+[ext_resource type="Texture2D" uid="uid://dntjg1yq4vktv" path="res://assets/icons/virality.svg" id="2_kyviq"]
+[ext_resource type="Texture2D" uid="uid://c20tjbcbfqhca" path="res://assets/icons/veracity.svg" id="3_7v70v"]
+[ext_resource type="Texture2D" uid="uid://b86h313shvqor" path="res://assets/icons/aggressivity.svg" id="4_riiab"]
+[ext_resource type="PackedScene" uid="uid://d1l2tpv0yru" path="res://main/post_area/post_area.tscn" id="5_4uqat"]
+[ext_resource type="Texture2D" uid="uid://onaepvumtys0" path="res://assets/icons/home.svg" id="6_i4bcc"]
+[ext_resource type="Texture2D" uid="uid://b2727wj8dl3am" path="res://assets/icons/settings.svg" id="7_kfg6f"]
+
+[node name="Main" type="Control" unique_id=1988377874]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=930636177]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatsBar" type="MarginContainer" parent="VBoxContainer" unique_id=2105623807]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_32cco")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/StatsBar" unique_id=2060115734]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Virality" type="HBoxContainer" parent="VBoxContainer/StatsBar/HBoxContainer" unique_id=2052185455]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/StatsBar/HBoxContainer/Virality" unique_id=2107314752]
+layout_mode = 2
+texture = ExtResource("2_kyviq")
+
+[node name="ViralityValue" type="Label" parent="VBoxContainer/StatsBar/HBoxContainer/Virality" unique_id=1205878766]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="Veracity" type="HBoxContainer" parent="VBoxContainer/StatsBar/HBoxContainer" unique_id=1783696866]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/StatsBar/HBoxContainer/Veracity" unique_id=1641721918]
+layout_mode = 2
+texture = ExtResource("3_7v70v")
+
+[node name="VeracityValue" type="Label" parent="VBoxContainer/StatsBar/HBoxContainer/Veracity" unique_id=1051574416]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="Aggressivity" type="HBoxContainer" parent="VBoxContainer/StatsBar/HBoxContainer" unique_id=953895883]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/StatsBar/HBoxContainer/Aggressivity" unique_id=1062078904]
+layout_mode = 2
+texture = ExtResource("4_riiab")
+
+[node name="AggressivityValue" type="Label" parent="VBoxContainer/StatsBar/HBoxContainer/Aggressivity" unique_id=2083670780]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="PostArea" parent="VBoxContainer" unique_id=1969265353 instance=ExtResource("5_4uqat")]
+layout_mode = 2
+
+[node name="BottomNavbar" type="MarginContainer" parent="VBoxContainer" unique_id=1645191529]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BottomNavbar" unique_id=1227420186]
+layout_mode = 2
+
+[node name="HomeBtn" type="Button" parent="VBoxContainer/BottomNavbar/HBoxContainer" unique_id=1464762021]
+layout_mode = 2
+size_flags_horizontal = 19
+icon = ExtResource("6_i4bcc")
+flat = true
+icon_alignment = 1
+
+[node name="OptionsBtn" type="Button" parent="VBoxContainer/BottomNavbar/HBoxContainer" unique_id=486568107]
+layout_mode = 2
+size_flags_horizontal = 19
+icon = ExtResource("7_kfg6f")
+flat = true
+icon_alignment = 1

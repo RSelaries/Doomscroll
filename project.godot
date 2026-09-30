@@ -11,10 +11,35 @@ config_version=5
 [application]
 
 config/name="doomscroll"
+config/tags=PackedStringArray("protoype", "sirius")
+run/main_scene="uid://bdsvhte003hxj"
 config/features=PackedStringArray("4.8")
-config/icon="res://icon.svg"
+config/icon="res://assets/icons/icon.svg"
+
+[autoload]
+
+Global="*uid://cvl6vjmcw6my1"
+
+[display]
+
+window/size/viewport_width=576
+window/size/viewport_height=1024
+window/size/window_width_override=576
+window/size/window_height_override=1024
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "yellow",
+"res://autoloads/": "purple",
+"res://data/": "pink",
+"res://main/": "green"
+}
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

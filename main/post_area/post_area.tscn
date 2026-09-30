@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://d1l2tpv0yru"]
+
+[ext_resource type="Script" uid="uid://bu3qh0lewrj26" path="res://main/post_area/post_area.gd" id="1_72gwr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aion5"]
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tofaq"]
+size = Vector2(8, 80)
+
+[node name="PostArea" type="Control" unique_id=1969265353]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_72gwr")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=750365895]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Post" type="MarginContainer" parent="MarginContainer" unique_id=320487537]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Post" unique_id=1897195038]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="PosterInfos" type="HBoxContainer" parent="MarginContainer/Post/VBoxContainer" unique_id=1519314249]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Post/VBoxContainer/PosterInfos" unique_id=1071897723]
+clip_children = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aion5")
+
+[node name="PosterProfilePicture" type="TextureRect" parent="MarginContainer/Post/VBoxContainer/PosterInfos/PanelContainer" unique_id=1498591914]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_tofaq")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PosterName" type="Label" parent="MarginContainer/Post/VBoxContainer/PosterInfos" unique_id=1581634420]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Poster name"
+
+[node name="PostContent" type="RichTextLabel" parent="MarginContainer/Post/VBoxContainer" unique_id=1329858534]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+fit_content = true
+
+[node name="InteractBtns" type="HBoxContainer" parent="MarginContainer/Post/VBoxContainer" unique_id=230015858]
+layout_mode = 2
+
+[node name="RepostBtn" type="Button" parent="MarginContainer/Post/VBoxContainer/InteractBtns" unique_id=286067316]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reposter"
+
+[node name="FlagBtn" type="Button" parent="MarginContainer/Post/VBoxContainer/InteractBtns" unique_id=2021144712]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Signaler"
+
+[connection signal="pressed" from="MarginContainer/Post/VBoxContainer/InteractBtns/RepostBtn" to="." method="_on_repost_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/Post/VBoxContainer/InteractBtns/FlagBtn" to="." method="_on_flag_btn_pressed"]
