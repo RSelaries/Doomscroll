@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bxo5xl8iyadrt"]
+
+[ext_resource type="Script" uid="uid://cno27ff14d4sp" path="res://addons/cfg_data_viewer/data_viewer_scene/config_file_data_table/config_file_data_table.gd" id="1_s1g3w"]
+
+[node name="ConfigFileDataTable" type="ScrollContainer" unique_id=979028887]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s1g3w")
+metadata/_tab_index = 0
+
+[node name="ConfigFileData" type="Tree" parent="." unique_id=673701539]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 19
+size_flags_vertical = 19
+column_titles_visible = true
+hide_folding = true
+hide_root = true
+scroll_hint_mode = 1

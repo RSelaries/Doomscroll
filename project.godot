@@ -29,13 +29,18 @@ window/size/window_height_override=1024
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/cfg_data_viewer/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
+"res://addons/": "gray",
 "res://assets/": "yellow",
-"res://autoloads/": "purple",
 "res://data/": "pink",
-"res://main/": "green"
+"res://main/": "green",
+"res://scripts/": "purple"
 }
 
 [rendering]

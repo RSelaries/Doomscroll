@@ -12,6 +12,6 @@ func _ready() -> void:
 
 
 func _update_stats() -> void:
-	virality_value.text = "%d" % [Global.virality]
-	veracity_value.text = "%d" % [Global.veracity]
-	aggressivity_value.text = "%d" % [Global.aggressivity]
+	virality_value.text = "%.2f" % [Global.virality]
+	veracity_value.text = "%.2f" % [Global.veracity]
+	aggressivity_value.text = "%.2f" % [Global.aggressivity]

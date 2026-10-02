@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://by87vdly8twxo"]
+
+[ext_resource type="Script" uid="uid://dbx2xwm2s3qt6" path="res://addons/cfg_data_viewer/data_viewer_scene/data_viewer_scene.gd" id="1_lko46"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lko46"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="DataViewer" type="VBoxContainer" unique_id=2132509785]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 19
+size_flags_vertical = 19
+script = ExtResource("1_lko46")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2059247174]
+layout_mode = 2
+
+[node name="ConfigFileName" type="Label" parent="HBoxContainer" unique_id=555058110]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=739513856]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="PanelContainer" unique_id=132638826]
+layout_mode = 2
+size_flags_horizontal = 17
+size_flags_vertical = 19
+split_offsets = PackedInt32Array(150)
+split_offset = 150
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/HSplitContainer" unique_id=227432112]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lko46")
+
+[node name="OpenedConfigFilesTabs" type="Tree" parent="PanelContainer/HSplitContainer/PanelContainer" unique_id=65149974]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 17
+size_flags_vertical = 17
+hide_folding = true
+hide_root = true
+
+[node name="OpenedConfigFilesContainer" type="TabContainer" parent="PanelContainer/HSplitContainer" unique_id=713937409]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 19
+size_flags_vertical = 17
+current_tab = 0
+tabs_visible = false
+
+[connection signal="item_selected" from="PanelContainer/HSplitContainer/PanelContainer/OpenedConfigFilesTabs" to="." method="_on_opened_config_files_tabs_item_selected"]
