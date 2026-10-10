@@ -14,7 +14,7 @@ config/name="doomscroll"
 config/tags=PackedStringArray("protoype", "sirius")
 run/main_scene="uid://bdsvhte003hxj"
 config/features=PackedStringArray("4.8")
-config/icon="res://assets/icons/icon.svg"
+config/icon="uid://cduv2bmg71ttt"
 
 [autoload]
 
@@ -28,10 +28,7 @@ window/size/window_width_override=576
 window/size/window_height_override=1024
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/cfg_data_viewer/plugin.cfg")
+window/handheld/orientation=1
 
 [file_customization]
 

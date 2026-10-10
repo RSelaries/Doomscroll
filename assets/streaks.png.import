@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg17bplquxvwq"
-path="res://.godot/imported/icon.svg-7c8e6dfe2213e2029f33175ecfc9166b.ctex"
+uid="uid://b3wc7m8a4yj0t"
+path="res://.godot/imported/streaks.png-307f95da05706340aad4e2dc1bd20c52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-7c8e6dfe2213e2029f33175ecfc9166b.ctex"]
+source_file="res://assets/streaks.png"
+dest_files=["res://.godot/imported/streaks.png-307f95da05706340aad4e2dc1bd20c52.ctex"]
 
 [params]
 
@@ -41,6 +41,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

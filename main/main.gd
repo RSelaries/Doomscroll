@@ -7,9 +7,3 @@ extends Control
 
 func _ready() -> void:
 	ending_scene.hide()
-	Global.end_reached.connect(_on_end_reached)
-
-
-func _on_end_reached() -> void:
-	end_text.text = Global.get_ending()
-	ending_scene.show()

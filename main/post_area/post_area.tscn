@@ -1,88 +1,137 @@
 [gd_scene format=3 uid="uid://d1l2tpv0yru"]
 
 [ext_resource type="Script" uid="uid://bu3qh0lewrj26" path="res://main/post_area/post_area.gd" id="1_72gwr"]
+[ext_resource type="Texture2D" uid="uid://bq4abeek0t6uq" path="res://assets/images/posters_pp/profile_picture_placeholder.svg" id="2_hgph2"]
+[ext_resource type="FontFile" uid="uid://bux72av87py17" path="res://assets/fonts/orbitron/Orbitron-Bold.ttf" id="2_yi7dx"]
+[ext_resource type="FontFile" uid="uid://dh3kdcwtkyrij" path="res://assets/fonts/orbitron/Orbitron-Medium.ttf" id="3_bmk5s"]
+[ext_resource type="FontFile" uid="uid://betowonv1qjw0" path="res://assets/fonts/orbitron/Orbitron-Black.ttf" id="5_hgph2"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aion5"]
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6x7sw"]
+content_margin_left = 25.0
+content_margin_top = 10.0
+content_margin_right = 25.0
+content_margin_bottom = 10.0
+bg_color = Color(0.9529412, 0.4627451, 0.12941177, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tofaq"]
-size = Vector2(8, 80)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jo25l"]
 
-[node name="PostArea" type="Control" unique_id=1969265353]
-layout_mode = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grrlh"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 20.0
+bg_color = Color(0.98, 0.8166667, 0, 0.7019608)
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_67ri8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmk5s"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0, 0, 0.65882355)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="PostArea" type="MarginContainer" unique_id=750365895]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 80
 script = ExtResource("1_72gwr")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=750365895]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="Post" type="MarginContainer" parent="MarginContainer" unique_id=320487537]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Post" unique_id=1897195038]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1897195038]
 layout_mode = 2
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="PosterInfos" type="HBoxContainer" parent="MarginContainer/Post/VBoxContainer" unique_id=1519314249]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1152619656]
 layout_mode = 2
-theme_override_constants/separation = 20
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Post/VBoxContainer/PosterInfos" unique_id=1071897723]
-clip_children = 1
-custom_minimum_size = Vector2(64, 64)
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/VBoxContainer" unique_id=2114708140]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_aion5")
+theme_override_constants/margin_left = 30
 
-[node name="PosterProfilePicture" type="TextureRect" parent="MarginContainer/Post/VBoxContainer/PosterInfos/PanelContainer" unique_id=1498591914]
+[node name="PosterProfilePicture" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer" unique_id=1498591914]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(164, 164)
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_tofaq")
+size_flags_horizontal = 0
+texture = ExtResource("2_hgph2")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="PosterName" type="Label" parent="MarginContainer/Post/VBoxContainer/PosterInfos" unique_id=1581634420]
+[node name="PosterName" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1581634420]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yi7dx")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_6x7sw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jo25l")
 text = "Poster name"
 
-[node name="PostContent" type="RichTextLabel" parent="MarginContainer/Post/VBoxContainer" unique_id=1329858534]
+[node name="PostContent" type="RichTextLabel" parent="VBoxContainer/VBoxContainer" unique_id=1329858534]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_bmk5s")
+theme_override_font_sizes/normal_font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_grrlh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_67ri8")
 bbcode_enabled = true
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
 fit_content = true
 
-[node name="InteractBtns" type="HBoxContainer" parent="MarginContainer/Post/VBoxContainer" unique_id=230015858]
+[node name="InteractBtns" type="HBoxContainer" parent="VBoxContainer" unique_id=230015858]
 layout_mode = 2
+theme_override_constants/separation = 30
 
-[node name="RepostBtn" type="Button" parent="MarginContainer/Post/VBoxContainer/InteractBtns" unique_id=286067316]
+[node name="RepostBtn" type="Button" parent="VBoxContainer/InteractBtns" unique_id=286067316]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hgph2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_bmk5s")
 text = "Reposter"
 
-[node name="FlagBtn" type="Button" parent="MarginContainer/Post/VBoxContainer/InteractBtns" unique_id=2021144712]
+[node name="FlagBtn" type="Button" parent="VBoxContainer/InteractBtns" unique_id=2021144712]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Signaler"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hgph2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_bmk5s")
+text = "Bloquer"
 
-[connection signal="pressed" from="MarginContainer/Post/VBoxContainer/InteractBtns/RepostBtn" to="." method="_on_repost_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/Post/VBoxContainer/InteractBtns/FlagBtn" to="." method="_on_flag_btn_pressed"]
+[node name="ReplayBtn" type="Button" parent="VBoxContainer/InteractBtns" unique_id=549904567]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hgph2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_bmk5s")
+text = "Rejouer"
+
+[connection signal="pressed" from="VBoxContainer/InteractBtns/RepostBtn" to="." method="_on_repost_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/InteractBtns/FlagBtn" to="." method="_on_flag_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/InteractBtns/ReplayBtn" to="." method="_on_replay_btn_pressed"]

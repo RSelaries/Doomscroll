@@ -1,4 +1,4 @@
-extends Control
+extends MarginContainer
 
 
 var posts: ConfigFile = ConfigFile.new()
@@ -9,15 +9,19 @@ var remaining_posts: PackedStringArray
 @onready var poster_profile_picture: TextureRect = %PosterProfilePicture
 @onready var poster_name: Label = %PosterName
 @onready var post_content: RichTextLabel = %PostContent
+@onready var repost_btn: Button = %RepostBtn
+@onready var flag_btn: Button = %FlagBtn
+@onready var replay_btn: Button = %ReplayBtn
 
 
 func _ready() -> void:
 	var err: Error = posts.load("res://data/posts.cfg")
 	if err:
-		printerr(err)
+		printerr("Error %S. Can't load posts data" % err)
 		return
 	
 	remaining_posts = posts.get_sections()
+	Global.end_reached.connect(end_scene)
 	next_post()
 
 
@@ -26,6 +30,10 @@ func next_post() -> void:
 	if remaining_posts.size() < 1:
 		Global.end_game()
 		return
+	
+	repost_btn.show()
+	flag_btn.show()
+	replay_btn.hide()
 	
 	# Setup post infos 
 	current_post = remaining_posts[randi_range(0, remaining_posts.size() - 1)]
@@ -57,3 +65,16 @@ func _on_flag_btn_pressed() -> void:
 		Global.aggressivity_points.append(posts.get_value(current_post, "flag/aggressivity"))
 	Global.update_stats()
 	next_post()
+
+
+func end_scene() -> void:
+	poster_name.text = "Dieu"
+	post_content.text = Global.get_ending()
+	repost_btn.hide()
+	flag_btn.hide()
+	replay_btn.show()
+	show()
+
+
+func _on_replay_btn_pressed() -> void:
+	get_tree().reload_current_scene()
