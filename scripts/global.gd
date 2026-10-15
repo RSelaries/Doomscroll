@@ -23,13 +23,13 @@ var virality_points: Array[float]
 var aggressivity_points: Array[float]
 
 
-func end_game() -> void: end_reached.emit()
-func update_stats() -> void: stats_updated.emit()
-
-
 func _ready() -> void:
 	var err: Error = endings.load("res://data/endings.cfg")
 	if err: return
+
+
+func end_game() -> void: end_reached.emit()
+func update_stats() -> void: stats_updated.emit()
 
 
 func get_ending() -> String:

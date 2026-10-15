@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://r5eu1dc8gukh"]
+
+[ext_resource type="PackedScene" uid="uid://dncteu0vc41wd" path="res://ui/start_screen/start_screen.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node" unique_id=334353771]
+
+[node name="StartScreen" parent="." unique_id=649801041 instance=ExtResource("1_ig7tw")]

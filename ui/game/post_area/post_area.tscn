@@ -1,21 +1,33 @@
 [gd_scene format=3 uid="uid://d1l2tpv0yru"]
 
-[ext_resource type="Script" uid="uid://bu3qh0lewrj26" path="res://main/post_area/post_area.gd" id="1_72gwr"]
-[ext_resource type="Texture2D" uid="uid://bq4abeek0t6uq" path="res://assets/images/posters_pp/profile_picture_placeholder.svg" id="2_hgph2"]
-[ext_resource type="FontFile" uid="uid://bux72av87py17" path="res://assets/fonts/orbitron/Orbitron-Bold.ttf" id="2_yi7dx"]
-[ext_resource type="FontFile" uid="uid://dh3kdcwtkyrij" path="res://assets/fonts/orbitron/Orbitron-Medium.ttf" id="3_bmk5s"]
-[ext_resource type="FontFile" uid="uid://betowonv1qjw0" path="res://assets/fonts/orbitron/Orbitron-Black.ttf" id="5_hgph2"]
+[ext_resource type="Script" uid="uid://bu3qh0lewrj26" path="res://ui/game/post_area/post_area.gd" id="1_cwqoh"]
+[ext_resource type="Texture2D" uid="uid://bq4abeek0t6uq" path="res://assets/images/posters_pp/profile_picture_placeholder.svg" id="2_mb5yx"]
+[ext_resource type="FontFile" uid="uid://bux72av87py17" path="res://assets/fonts/orbitron/Orbitron-Bold.ttf" id="3_lu2vk"]
+[ext_resource type="FontFile" uid="uid://c2ha8avp24e5o" path="res://assets/fonts/orbitron/Orbitron-Regular.ttf" id="4_vewkb"]
+[ext_resource type="FontFile" uid="uid://dh3kdcwtkyrij" path="res://assets/fonts/orbitron/Orbitron-Medium.ttf" id="5_2idxl"]
+[ext_resource type="FontFile" uid="uid://betowonv1qjw0" path="res://assets/fonts/orbitron/Orbitron-Black.ttf" id="6_6oerp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6x7sw"]
 content_margin_left = 25.0
 content_margin_top = 10.0
 content_margin_right = 25.0
-content_margin_bottom = 10.0
 bg_color = Color(0.9529412, 0.4627451, 0.12941177, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jo25l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grq6w"]
+content_margin_left = 25.0
+content_margin_right = 25.0
+content_margin_bottom = 10.0
+bg_color = Color(0.9529412, 0.4627451, 0.12941177, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g0637"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_quda8"]
+font = ExtResource("4_vewkb")
+font_color = Color(0.45770973, 0.199411, 0.011674162, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grrlh"]
 content_margin_left = 30.0
@@ -49,7 +61,7 @@ theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 80
-script = ExtResource("1_72gwr")
+script = ExtResource("1_cwqoh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1897195038]
 layout_mode = 2
@@ -71,7 +83,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(164, 164)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("2_hgph2")
+texture = ExtResource("2_mb5yx")
 expand_mode = 1
 stretch_mode = 6
 
@@ -79,17 +91,25 @@ stretch_mode = 6
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_yi7dx")
+theme_override_fonts/font = ExtResource("3_lu2vk")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_6x7sw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jo25l")
 text = "Poster name"
 
+[node name="PosterAt" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1573129281]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_grq6w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g0637")
+text = "@postername"
+label_settings = SubResource("LabelSettings_quda8")
+
 [node name="PostContent" type="RichTextLabel" parent="VBoxContainer/VBoxContainer" unique_id=1329858534]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_bmk5s")
+theme_override_fonts/normal_font = ExtResource("5_2idxl")
 theme_override_font_sizes/normal_font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_grrlh")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_67ri8")
@@ -106,7 +126,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_hgph2")
+theme_override_fonts/font = ExtResource("6_6oerp")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_bmk5s")
 text = "Reposter"
@@ -116,7 +136,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_hgph2")
+theme_override_fonts/font = ExtResource("6_6oerp")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_bmk5s")
 text = "Bloquer"
@@ -127,7 +147,7 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_hgph2")
+theme_override_fonts/font = ExtResource("6_6oerp")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_bmk5s")
 text = "Rejouer"

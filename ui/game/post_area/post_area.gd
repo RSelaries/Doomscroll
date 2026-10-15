@@ -12,6 +12,7 @@ var remaining_posts: PackedStringArray
 @onready var repost_btn: Button = %RepostBtn
 @onready var flag_btn: Button = %FlagBtn
 @onready var replay_btn: Button = %ReplayBtn
+@onready var poster_at: Label = %PosterAt
 
 
 func _ready() -> void:
@@ -34,10 +35,21 @@ func next_post() -> void:
 	repost_btn.show()
 	flag_btn.show()
 	replay_btn.hide()
+	poster_at.hide()
 	
 	# Setup post infos 
 	current_post = remaining_posts[randi_range(0, remaining_posts.size() - 1)]
 	remaining_posts.erase(current_post)
+	
+	if posts.has_section_key(current_post, "poster_at"):
+		poster_at.show()
+		poster_at.text = "@" + posts.get_value(current_post, "poster_at", "")
+	
+	if posts.has_section_key(current_post, "poster_pp"):
+		var poster_pp_path: String = posts.get_value(current_post, "poster_pp", "")
+		poster_profile_picture.texture = load(poster_pp_path)
+	else:
+		poster_profile_picture.texture = load("uid://bq4abeek0t6uq")
 	
 	poster_name.text = posts.get_value(current_post, "poster_name", "Poster Name")
 	post_content.text = posts.get_value(current_post, "content", "This is a post.")
@@ -77,4 +89,9 @@ func end_scene() -> void:
 
 
 func _on_replay_btn_pressed() -> void:
-	get_tree().reload_current_scene()
+	get_tree().current_scene.animation_player.play(&"fade_out")
+	await get_tree().current_scene.animation_player.animation_finished
+	Global.veracity_points.clear()
+	Global.aggressivity_points.clear()
+	Global.virality_points.clear()
+	get_tree().change_scene_to_file("res://main.tscn")

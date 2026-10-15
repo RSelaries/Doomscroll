@@ -12,7 +12,7 @@ config_version=5
 
 config/name="doomscroll"
 config/tags=PackedStringArray("protoype", "sirius")
-run/main_scene="uid://bdsvhte003hxj"
+run/main_scene="uid://r5eu1dc8gukh"
 config/features=PackedStringArray("4.8")
 config/icon="uid://cduv2bmg71ttt"
 
@@ -27,7 +27,6 @@ window/size/viewport_height=1024
 window/size/window_width_override=576
 window/size/window_height_override=1024
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 window/handheld/orientation=1
 
 [file_customization]
@@ -36,8 +35,8 @@ folder_colors={
 "res://addons/": "gray",
 "res://assets/": "yellow",
 "res://data/": "pink",
-"res://main/": "green",
-"res://scripts/": "purple"
+"res://scripts/": "purple",
+"res://ui/": "green"
 }
 
 [rendering]
