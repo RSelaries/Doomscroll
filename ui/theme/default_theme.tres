@@ -1,0 +1,53 @@
+[gd_resource type="Theme" format=3 uid="uid://5jtgx6u4pgp8"]
+
+[ext_resource type="FontFile" uid="uid://dor5wrmmokhcf" path="res://assets/fonts/nevermind/NeverMind-Extrabold.ttf" id="2_i47mx"]
+[ext_resource type="FontFile" uid="uid://cfoxi2os6ui53" path="res://assets/fonts/nevermind/NeverMind-Light.ttf" id="2_ywhkj"]
+[ext_resource type="FontFile" uid="uid://5vsfq4wyyhem" path="res://assets/fonts/nevermind/NeverMind-Book.ttf" id="3_i47mx"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_abvy7"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abvy7"]
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywhkj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[resource]
+default_font = ExtResource("3_i47mx")
+default_font_size = 24
+HSeparator/styles/separator = SubResource("StyleBoxLine_abvy7")
+MediaContainer/base_type = &"PanelContainer"
+MediaContainer/styles/panel = SubResource("StyleBoxFlat_abvy7")
+PostContainer/base_type = &"VBoxContainer"
+PostContainer/constants/separation = 15
+PostContent/base_type = &"RichTextLabel"
+PostStats/base_type = &"Label"
+PostStats/fonts/font = ExtResource("2_i47mx")
+PosterAt/base_type = &"Label"
+PosterAt/colors/font_color = Color(0.60933006, 0.6093301, 0.60933006, 1)
+PosterAt/fonts/font = ExtResource("2_ywhkj")
+PosterName/base_type = &"Label"
+PosterName/font_sizes/font_size = 26
+PosterName/fonts/font = ExtResource("2_i47mx")
+SubPostContainer/base_type = &"PanelContainer"
+SubPostContainer/styles/panel = SubResource("StyleBoxFlat_ywhkj")

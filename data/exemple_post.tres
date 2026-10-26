@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="PostResource" format=3 uid="uid://bqwyjurn3rbed"]
+
+[ext_resource type="Script" uid="uid://byaokrvc2e5cf" path="res://global_scripts/posts_resources_scripts/answer_resource.gd" id="1_nfjim"]
+[ext_resource type="Texture2D" uid="uid://cue04kedc0wcx" path="res://assets/posts_medias/rdm_posts/dofus.png" id="2_veopx"]
+[ext_resource type="Script" uid="uid://djtkhyfi7e7w5" path="res://global_scripts/posts_resources_scripts/post_resource.gd" id="2_vr8qn"]
+[ext_resource type="Texture2D" uid="uid://dp0md3aotwwaw" path="res://assets/posters_pfp/atvn_pfp.png" id="3_cgenf"]
+[ext_resource type="Resource" uid="uid://7oea6k0mp22n" path="res://data/exemple_subpost.tres" id="4_veopx"]
+
+[sub_resource type="Resource" id="Resource_gt2hs"]
+script = ExtResource("1_nfjim")
+content = "De fou !!! J'avais asséché mes crédits mobile tah l'époque pour m'acheter des trucs ds le jeu"
+add_followers_amount = 5
+add_likes_amount = 12
+add_dislikes_amount = 2
+add_tags = PackedStringArray("jeu-video", "positif")
+metadata/_custom_type_script = "uid://byaokrvc2e5cf"
+
+[sub_resource type="Resource" id="Resource_wpf6e"]
+script = ExtResource("1_nfjim")
+content = "ca pue du cul dofus"
+add_followers_amount = 2
+add_likes_amount = 4
+add_dislikes_amount = 7
+add_tags = PackedStringArray("jeu-video", "negatif")
+metadata/_custom_type_script = "uid://byaokrvc2e5cf"
+
+[resource]
+script = ExtResource("2_vr8qn")
+name = "AT4VN"
+at = "atvn_bg"
+poster_pfp = ExtResource("3_cgenf")
+content = "Vous trouvez pas que Doufus c'est goated la miff ?
+[ht]#doufus[/ht] [ht]#sirius[/ht] [ht]#ceciestunpost[/ht]"
+media = ExtResource("2_veopx")
+likes = 67
+dislikes = 5
+has_subpost = true
+subpost = ExtResource("4_veopx")
+answers = Array[ExtResource("1_nfjim")]([SubResource("Resource_gt2hs"), SubResource("Resource_wpf6e")])
+metadata/_custom_type_script = "uid://djtkhyfi7e7w5"

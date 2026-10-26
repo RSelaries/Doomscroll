@@ -10,11 +10,50 @@ config_version=5
 
 [application]
 
-config/name="doomscroll"
+config/name="Doomscroll"
+config/description="La suite du projet \"Jeu des réseaux-sociaux\" de Sirius Productions."
+config/version="prototype-2"
 config/features=PackedStringArray("4.8")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PostManager="*uid://d32mm1ms310n5"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+gdscript/warnings/unsafe_property_access=1
+gdscript/warnings/unsafe_method_access=1
+gdscript/warnings/unsafe_cast=1
+gdscript/warnings/unsafe_void_return=2
+
+[display]
+
+window/size/viewport_width=576
+window/size/viewport_height=1024
+window/size/always_on_top=true
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+window/handheld/orientation=1
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "orange",
+"res://data/": "pink",
+"res://global_scripts/": "purple",
+"res://ui/": "green"
+}
+
+[gui]
+
+theme/custom="uid://5jtgx6u4pgp8"
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.12156863, 0.12156863, 0.12156863, 1)

@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://cytqdwuwur5wu"]
+
+[ext_resource type="Script" uid="uid://blfcfapax1syv" path="res://ui/post_scene/subpost_scene/subpost_scene.gd" id="1_yvs3p"]
+[ext_resource type="Script" uid="uid://csgorma3aiyid" path="res://global_scripts/post_rich_text_effects/hashtag_effect.gd" id="2_f0j36"]
+[ext_resource type="Resource" uid="uid://7oea6k0mp22n" path="res://data/exemple_subpost.tres" id="2_ybkfs"]
+[ext_resource type="Texture2D" uid="uid://3ru8b8e5283r" path="res://assets/posters_pfp/rems_pfp.png" id="3_f0j36"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddcpr"]
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_qelek"]
+script = ExtResource("2_f0j36")
+metadata/_custom_type_script = "uid://csgorma3aiyid"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0j36"]
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
+[node name="SubpostScene" type="PanelContainer" unique_id=1328242264]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"SubPostContainer"
+script = ExtResource("1_yvs3p")
+subpost = ExtResource("2_ybkfs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1897375425]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1036942769]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1264544820]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1319811124]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="PfpMask" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=931748765]
+clip_children = 1
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ddcpr")
+metadata/_edit_group_ = true
+
+[node name="PosterPfp" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/PfpMask" unique_id=1901061169]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_f0j36")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PosterName" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1076219441]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"PosterName"
+text = "Rems"
+
+[node name="PosterAt" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=84953315]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"PosterAt"
+text = "petitpatron"
+
+[node name="PostContent" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=315660435]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"PostContent"
+bbcode_enabled = true
+text = "Vous avez jouer à Doufus ? C pété du cul"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_qelek")]
+
+[node name="MediaMask" type="PanelContainer" parent="VBoxContainer" unique_id=1002838582]
+clip_children = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f0j36")
+
+[node name="PostMedia" type="TextureRect" parent="VBoxContainer/MediaMask" unique_id=1367271630]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 6

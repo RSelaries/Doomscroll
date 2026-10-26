@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SubPostResource" format=3 uid="uid://7oea6k0mp22n"]
+
+[ext_resource type="Script" uid="uid://d2tedgbtb0ep8" path="res://global_scripts/posts_resources_scripts/subpost_resource.gd" id="1_eoc0h"]
+[ext_resource type="Texture2D" uid="uid://3ru8b8e5283r" path="res://assets/posters_pfp/rems_pfp.png" id="2_rmtpt"]
+
+[resource]
+script = ExtResource("1_eoc0h")
+name = "Rems"
+at = "petitpatron"
+content = "Vous avez jouer à Doufus ? C pété du cul"
+poster_pfp = ExtResource("2_rmtpt")
+metadata/_custom_type_script = "uid://d2tedgbtb0ep8"
