@@ -1,8 +1,9 @@
 @tool
+class_name SubPostScene
 extends Control
 
 
-@export var subpost: SubPostResource
+@export var subpost: SubPostResource: set = _set_subpost
 
 
 @onready var poster_pfp: TextureRect = %PosterPfp

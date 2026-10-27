@@ -29,22 +29,16 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rivxr")
 script = ExtResource("1_04yqs")
 
-[node name="SendButton" type="Button" parent="." unique_id=771796678]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=645790822]
 layout_mode = 2
-flat = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="SendButton" unique_id=645790822]
-layout_mode = 0
-offset_right = 556.0
-offset_bottom = 1004.0
 theme_override_constants/separation = 15
 
-[node name="TextureRect" type="TextureRect" parent="SendButton/HBoxContainer" unique_id=490929592]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=490929592]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("2_hwwqe")
 
-[node name="AnswerLabel" type="RichTextLabel" parent="SendButton/HBoxContainer" unique_id=562407876]
+[node name="AnswerLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=562407876]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -53,9 +47,13 @@ fit_content = true
 vertical_alignment = 1
 custom_effects = [SubResource("RichTextEffect_kusvo")]
 
-[node name="TextureRect2" type="TextureRect" parent="SendButton/HBoxContainer" unique_id=1912935172]
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" unique_id=1912935172]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("2_y44rx")
+
+[node name="SendButton" type="Button" parent="." unique_id=771796678]
+layout_mode = 2
+flat = true
 
 [connection signal="pressed" from="SendButton" to="." method="_on_send_button_pressed"]

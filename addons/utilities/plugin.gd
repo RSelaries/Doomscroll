@@ -2,6 +2,12 @@
 extends EditorPlugin
 
 
+const POSTS_VIEWER_SCENE = preload("res://addons/utilities/posts_viewer/posts_viewer.tscn")
+
+
+var post_viewer: Control
+
+
 func _enable_plugin() -> void:
 	# Add autoloads here.
 	pass
@@ -13,11 +19,33 @@ func _disable_plugin() -> void:
 
 
 func _enter_tree() -> void:
+	post_viewer = POSTS_VIEWER_SCENE.instantiate()
+	EditorInterface.get_editor_main_screen().add_child(post_viewer)
+	_make_visible(false)
 	add_tool_menu_item("Convert CSV to PostListResource", convert_csv)
 
 
 func _exit_tree() -> void:
+	if post_viewer:
+		post_viewer.queue_free()
 	remove_tool_menu_item("Convert CSV to PostListResource")
+
+
+func _make_visible(visible: bool) -> void:
+	if post_viewer:
+		post_viewer.visible = visible
+
+
+func _has_main_screen() -> bool:
+	return true
+
+
+func _get_plugin_name() -> String:
+	return "Posts Viewer"
+
+
+func _get_plugin_icon():
+	return EditorInterface.get_editor_theme().get_icon("Object", "EditorIcons")
 
 
 func convert_csv() -> void:

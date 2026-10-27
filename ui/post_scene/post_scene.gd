@@ -13,6 +13,7 @@ extends Control
 @onready var dislikes_amount: Label = %DislikesAmount
 @onready var post_media: TextureRect = %PostMedia
 @onready var answers_container: VBoxContainer = %AnswersContainer
+@onready var subpost_scene: SubPostScene = %SubpostScene
 
 
 func _ready() -> void:
@@ -35,6 +36,11 @@ func _update_shown_post() -> void:
 		post_media.texture = shown_post.media
 	else:
 		post_media.hide()
+	if shown_post.subpost:
+		subpost_scene.show()
+		subpost_scene.subpost = shown_post.subpost
+	else:
+		subpost_scene.hide()
 	
 	for child in answers_container.get_children():
 		child.queue_free()

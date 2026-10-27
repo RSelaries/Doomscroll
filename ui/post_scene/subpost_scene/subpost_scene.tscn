@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://blfcfapax1syv" path="res://ui/post_scene/subpost_scene/subpost_scene.gd" id="1_yvs3p"]
 [ext_resource type="Script" uid="uid://csgorma3aiyid" path="res://global_scripts/post_rich_text_effects/hashtag_effect.gd" id="2_f0j36"]
-[ext_resource type="Resource" uid="uid://7oea6k0mp22n" path="res://data/exemple_subpost.tres" id="2_ybkfs"]
 [ext_resource type="Texture2D" uid="uid://3ru8b8e5283r" path="res://assets/posters_pfp/rems_pfp.png" id="3_f0j36"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddcpr"]
@@ -29,7 +28,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"SubPostContainer"
 script = ExtResource("1_yvs3p")
-subpost = ExtResource("2_ybkfs")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1897375425]
 layout_mode = 2

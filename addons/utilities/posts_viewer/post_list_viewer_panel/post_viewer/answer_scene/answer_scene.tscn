@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://qmrwdx11xxxx"]
+
+[ext_resource type="Script" uid="uid://dalgh65tm8824" path="res://addons/utilities/posts_viewer/post_list_viewer_panel/post_viewer/answer_scene/answer_scene.gd" id="1_pueug"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bggnu"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1728327, 0.17283267, 0.17283267, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.22333601, 0.6814906, 0.72364855, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="DPITexture" id="DPITexture_uuw3f"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"m5 1v1h-4v2h14v-2h-4v-1zm-3 4v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8zm1 2h2v6h-2zm4 0h2v6h-2zm4 0h2v6h-2z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50u8n"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="AnswerScene" type="PanelContainer" unique_id=240973679]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -279.0
+offset_bottom = -832.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_bggnu")
+script = ExtResource("1_pueug")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=370026413]
+layout_mode = 2
+
+[node name="DeleteAnswerButton" type="Button" parent="HBoxContainer" unique_id=2092319164]
+unique_name_in_owner = true
+layout_mode = 2
+icon = SubResource("DPITexture_uuw3f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1849785662]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AnswerLabel" type="TextEdit" parent="HBoxContainer/VBoxContainer" unique_id=1638558999]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1145880494]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1246320460]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add Followers Count"
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1509355486]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_50u8n")
+
+[node name="Followers" type="EditorSpinSlider" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=74142434]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+editing_integer = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=455637232]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=307924518]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add Likes Count"
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=289231093]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_50u8n")
+
+[node name="Likes" type="EditorSpinSlider" parent="HBoxContainer/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=2022557592]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+editing_integer = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=245900638]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=590196515]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add Dislikes Count"
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1541331188]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_50u8n")
+
+[node name="Dislikes" type="EditorSpinSlider" parent="HBoxContainer/VBoxContainer/HBoxContainer3/PanelContainer" unique_id=1902721339]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+editing_integer = true
+
+[node name="TagsContainer" type="HFlowContainer" parent="HBoxContainer/VBoxContainer" unique_id=313584447]
+unique_name_in_owner = true
+layout_mode = 2

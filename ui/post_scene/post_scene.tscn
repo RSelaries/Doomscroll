@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cue04kedc0wcx" path="res://assets/posts_medias/rdm_posts/dofus.png" id="4_dtojf"]
 [ext_resource type="Texture2D" uid="uid://bgy2axr4eyg5g" path="res://assets/icons/dislike.svg" id="4_qelek"]
 [ext_resource type="PackedScene" uid="uid://cytqdwuwur5wu" path="res://ui/post_scene/subpost_scene/subpost_scene.tscn" id="5_r1e7v"]
+[ext_resource type="Resource" uid="uid://7oea6k0mp22n" path="res://data/exemple_subpost.tres" id="7_a0qew"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cjof"]
 corner_radius_top_left = 1000
@@ -107,7 +108,9 @@ stretch_mode = 6
 layout_mode = 2
 
 [node name="SubpostScene" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=885706482 instance=ExtResource("5_r1e7v")]
+unique_name_in_owner = true
 layout_mode = 2
+subpost = ExtResource("7_a0qew")
 
 [node name="PostStats" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1215891780]
 layout_mode = 2
