@@ -16,12 +16,12 @@ const PostViewer = preload("res://addons/utilities/posts_viewer/post_list_viewer
 func _ready() -> void:
 	add_post_button.icon = EditorInterface.get_editor_theme().get_icon("Add", "EditorIcons")
 	
-	_update()
+	update()
 	
-	post_list.changed.connect(_update)
+	post_list.changed.connect(update)
 
 
-func _update() -> void:
+func update() -> void:
 	for child in posts_container.get_children():
 		child.queue_free()
 	

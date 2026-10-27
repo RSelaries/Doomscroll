@@ -32,6 +32,7 @@ poster_pfp = ExtResource("3_cgenf")
 content = "Vous trouvez pas que Doufus c'est goated la miff ?
 [ht]#doufus[/ht] [ht]#sirius[/ht] [ht]#ceciestunpost[/ht]"
 media = ExtResource("2_veopx")
+likes = 67.0
 dislikes = 5
 has_subpost = true
 subpost = ExtResource("4_veopx")

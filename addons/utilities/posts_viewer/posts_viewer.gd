@@ -13,6 +13,7 @@ const PostListViewer = preload("res://addons/utilities/posts_viewer/post_list_vi
 @onready var open_file_dialog: FileDialog = %OpenFileDialog
 @onready var opened_files_list: ItemList = %OpenedFilesList
 @onready var post_lists_container: TabContainer = %PostListsContainer
+@onready var refresh_viewer_button: Button = %RefreshViewerButton
 
 
 var opened_files: Array[Dictionary]
@@ -23,6 +24,12 @@ func _ready() -> void:
 			"SidebarLeft", "EditorIcons")
 	open_file_button.icon = EditorInterface.get_editor_theme().get_icon(
 			"Load", "EditorIcons")
+	refresh_viewer_button.icon = EditorInterface.get_editor_theme().get_icon(
+			"Reload", "EditorIcons")
+	
+	# signals
+	refresh_viewer_button.pressed.connect(func():
+			for post_list in post_lists_container.get_children(): post_list.update())
 
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
