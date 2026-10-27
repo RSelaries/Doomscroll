@@ -20,10 +20,12 @@ var answer: AnswerResource
 @onready var tags_container: HFlowContainer = %TagsContainer
 @onready var delete_answer_button: Button = %DeleteAnswerButton
 
-
+	
 func _ready() -> void:
 	if answer:
 		_update()
+	
+	answer.changed.connect(_update)
 	
 	delete_answer_button.icon = EditorInterface.get_editor_theme().get_icon("Remove", "EditorIcons")
 	
@@ -32,27 +34,49 @@ func _ready() -> void:
 	tags_container.add_child(add_tag_button, false, Node.INTERNAL_MODE_BACK)
 	
 	# Signals
-	add_tag_button.pressed.connect(func(): answer.add_tags.append(""); _update())
-	delete_answer_button.pressed.connect(func(): answer_deleted.emit(answer); queue_free())
-	answer_label.text_changed.connect(func(): answer.content = answer_label.text)
-	followers.value_changed.connect(func(value): answer.add_followers_amount = value)
-	likes.value_changed.connect(func(value): answer.add_likes_amount = value)
-	dislikes.value_changed.connect(func(value): answer.add_dislikes_amount = value)
+	add_tag_button.pressed.connect(func():
+			var tags: PackedStringArray = answer.add_tags.duplicate()
+			tags.append("")
+			DoomscrollPluginUndoRedo.set_property(answer, &"add_tags", tags, "Add tag"))
+	answer_label.text_changed.connect(func():
+			DoomscrollPluginUndoRedo.set_property(answer, &"content", answer_label.text, "Edit answer", true))
+	followers.value_changed.connect(func(value):
+			DoomscrollPluginUndoRedo.set_property(answer, &"add_followers_amount", value, "Edit followers", true))
+	likes.value_changed.connect(func(value):
+			DoomscrollPluginUndoRedo.set_property(answer, &"add_likes_amount", value, "Edit likes", true))
+	dislikes.value_changed.connect(func(value):
+			DoomscrollPluginUndoRedo.set_property(answer, &"add_dislikes_amount", value, "Edit dislikes", true))
+	delete_answer_button.pressed.connect(func(): answer_deleted.emit(answer))
 
 
 func _update() -> void:
-	answer_label.text = answer.content
-	followers.value = answer.add_followers_amount
-	likes.value = answer.add_likes_amount
-	dislikes.value = answer.add_dislikes_amount
-	for child in tags_container.get_children():
-		child.queue_free()
-	for tag in answer.add_tags:
-		var new_tag: Tag = TAG_SCENE.instantiate()
-		new_tag.tag = tag
-		new_tag.tag_changed.connect(func(tag, new_value):
-				answer.add_tags[answer.add_tags.find(tag)] = new_value)
-		new_tag.tag_deleted.connect(func(tag):
-				answer.add_tags.erase(tag)
-				_update())
-		tags_container.add_child(new_tag)
+	if answer_label.text != answer.content:
+		answer_label.text = answer.content
+	followers.set_value_no_signal(answer.add_followers_amount)
+	likes.set_value_no_signal(answer.add_likes_amount)
+	dislikes.set_value_no_signal(answer.add_dislikes_amount)
+	
+	if tags_container.get_child_count() != answer.add_tags.size():
+		for child in tags_container.get_children():
+			child.queue_free()
+		for i in answer.add_tags.size():
+			var new_tag: Tag = TAG_SCENE.instantiate()
+			new_tag.tag = answer.add_tags[i]
+			new_tag.tag_changed.connect(_on_tag_edited.bind(i))
+			new_tag.tag_deleted.connect(_on_tag_deleted.bind(i))
+			tags_container.add_child(new_tag)
+	else:
+		for i in answer.add_tags.size():
+			tags_container.get_child(i).set_text_no_signal(answer.add_tags[i])
+
+
+func _on_tag_edited(new_value: String, index: int) -> void:
+	var tags: PackedStringArray = answer.add_tags.duplicate()
+	tags[index] = new_value
+	DoomscrollPluginUndoRedo.set_property(answer, &"add_tags", tags, "Edit tag")
+
+
+func _on_tag_deleted(index: int) -> void:
+	var tags: PackedStringArray = answer.add_tags.duplicate()
+	tags.remove_at(index)
+	DoomscrollPluginUndoRedo.set_property(answer, &"add_tags", tags, "Delete tag")

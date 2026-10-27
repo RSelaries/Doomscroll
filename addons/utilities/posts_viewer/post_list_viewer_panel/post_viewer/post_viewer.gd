@@ -36,49 +36,77 @@ func _ready() -> void:
 	answers_container.add_child(new_answer_button, false, Node.INTERNAL_MODE_BACK)
 	
 	# signals
-	new_answer_button.pressed.connect(func(): post.answers.append(AnswerResource.new()); _update_post())
-	poster_name.text_changed.connect(func(text: String): post.name = text)
-	poster_at.text_changed.connect(func(text: String): post.at = text)
-	post_content.text_changed.connect(func(): post.content = post_content.text)
-	likes_amount.value_changed.connect(func(value): post.likes = value)
-	dislikes_amount.value_changed.connect(func(value): post.dislikes = value)
-	media_picker.resource_changed.connect(func(res: Texture2D): post.media = res)
-	clear_media_button.pressed.connect(func(): media_picker.edited_resource = null; post.media = null)
-	pfp_picker.resource_changed.connect(func(res: Texture2D): post.poster_pfp = res)
+	new_answer_button.pressed.connect(func():
+			var answers: Array[AnswerResource] = post.answers.duplicate()
+			answers.append(AnswerResource.new())
+			DoomscrollPluginUndoRedo.set_property(post, &"answers", answers, "Add new answer"))
+	poster_name.text_changed.connect(func(t: String):
+			DoomscrollPluginUndoRedo.set_property(post, &"name", t, "Edit name", true))
+	poster_at.text_changed.connect(func(t: String):
+			DoomscrollPluginUndoRedo.set_property(post, &"at", t, "Edit @", true))
+	post_content.text_changed.connect(func():
+			DoomscrollPluginUndoRedo.set_property(post, &"content", post_content.text, "Edit content", true))
+	likes_amount.value_changed.connect(func(v):
+			DoomscrollPluginUndoRedo.set_property(post, &"likes", v, "Edit likes", true))
+	dislikes_amount.value_changed.connect(func(v):
+			DoomscrollPluginUndoRedo.set_property(post, &"dislikes", v, "Edit dislikes", true))
+	media_picker.resource_changed.connect(func(res: Texture2D):
+			DoomscrollPluginUndoRedo.set_property(post, &"media", res, "Change media"))
+	clear_media_button.pressed.connect(func():
+			DoomscrollPluginUndoRedo.set_property(post, &"media", null, "Clear media"))
+	pfp_picker.resource_changed.connect(func(res: Texture2D):
+			DoomscrollPluginUndoRedo.set_property(post, &"poster_pfp", res, "Change poster_pfp"))
 
 
 func _update_post() -> void:
 	if not post or not poster_name:
 		return
 	
-	poster_name.text = post.name
-	poster_at.text = post.at
-	post_content.text = post.content
-	likes_amount.value = post.likes
-	dislikes_amount.value = post.dislikes
-	pfp_picker.edited_resource = post.poster_pfp
-	media_picker.edited_resource = post.media
+	if poster_name.text != post.name:
+		poster_name.text = post.name
+	if poster_at.text != post.at:
+		poster_at.text = post.at
+	if post_content.text != post.content:
+		post_content.text = post.content
+	if pfp_picker.edited_resource != post.poster_pfp:
+		pfp_picker.edited_resource = post.poster_pfp
+	if media_picker.edited_resource != post.media:
+		media_picker.edited_resource = post.media
+	
+	likes_amount.set_value_no_signal(post.likes)
+	dislikes_amount.set_value_no_signal(post.dislikes)
+	
 	if post.subpost:
 		subpost_scene.show()
 		subpost_scene.subpost = post.subpost
 	else :
 		subpost_scene.hide()
 	
-	for child in answers_container.get_children():
-		child.queue_free()
-	 
-	for answer in post.answers:
-		var new_answer: AnswerSceneType = ANSWER_SCENE.instantiate()
-		new_answer.answer = answer
-		new_answer.answer_deleted.connect(func(answer): post.answers.erase(answer))
-		answers_container.add_child(new_answer)
+	if answers_container.get_child_count() != post.answers.size():
+		for child in answers_container.get_children():
+			child.queue_free()
+		 
+		for answer in post.answers:
+			var new_answer: AnswerSceneType = ANSWER_SCENE.instantiate()
+			new_answer.answer = answer
+			new_answer.answer_deleted.connect(_on_answer_deleted)
+			answers_container.add_child(new_answer)
 
 
 func _set_post(new_value: PostResource) -> void:
+	if post and post.changed.is_connected(_update_post):
+		post.changed.disconnect(_update_post)
 	post = new_value
+	if post:
+		post.changed.connect(_update_post)
 	_update_post()
 
 
+func _on_answer_deleted(answer: AnswerResource) -> void:
+	var answers: Array[AnswerResource] = post.answers.duplicate()
+	answers.erase(answer)
+	DoomscrollPluginUndoRedo.set_property(post, &"answers", answers, "Delete answer")
+
+
 func _on_delete_post_button_pressed() -> void:
-	queue_free()
 	post_deleted.emit(post)

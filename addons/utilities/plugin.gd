@@ -20,12 +20,16 @@ func _disable_plugin() -> void:
 
 func _enter_tree() -> void:
 	post_viewer = POSTS_VIEWER_SCENE.instantiate()
+	DoomscrollPluginUndoRedo.manager = get_undo_redo()
+	DoomscrollPluginUndoRedo.context = post_viewer
 	EditorInterface.get_editor_main_screen().add_child(post_viewer)
 	_make_visible(false)
 	add_tool_menu_item("Convert CSV to PostListResource", convert_csv)
 
 
 func _exit_tree() -> void:
+	DoomscrollPluginUndoRedo.manager = null
+	DoomscrollPluginUndoRedo.context = null
 	if post_viewer:
 		post_viewer.queue_free()
 	remove_tool_menu_item("Convert CSV to PostListResource")

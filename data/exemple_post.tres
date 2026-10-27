@@ -12,17 +12,13 @@ content = "De fou !!! J'avais asséché mes crédits mobile tah l'époque pour m
 add_followers_amount = 5.0
 add_likes_amount = 12.0
 add_dislikes_amount = 2.0
-add_tags = PackedStringArray("jeux-video", "positif")
+add_tags = PackedStringArray("jeu-vidéo", "positif")
 metadata/_custom_type_script = "uid://byaokrvc2e5cf"
 
-[sub_resource type="Resource" id="Resource_wpf6e"]
+[sub_resource type="Resource" id="Resource_cgenf"]
 script = ExtResource("1_nfjim")
 content = "ca pue du cul dofus"
-add_followers_amount = 2
-add_likes_amount = 4
-add_dislikes_amount = 7
-add_tags = PackedStringArray("jeu-video", "negatif")
-metadata/_custom_type_script = "uid://byaokrvc2e5cf"
+add_tags = PackedStringArray("jeu-vidéo", "négatif")
 
 [resource]
 script = ExtResource("2_vr8qn")
@@ -36,5 +32,5 @@ likes = 67.0
 dislikes = 5
 has_subpost = true
 subpost = ExtResource("4_veopx")
-answers = Array[ExtResource("1_nfjim")]([SubResource("Resource_gt2hs"), SubResource("Resource_wpf6e")])
+answers = Array[ExtResource("1_nfjim")]([SubResource("Resource_gt2hs"), SubResource("Resource_cgenf")])
 metadata/_custom_type_script = "uid://djtkhyfi7e7w5"

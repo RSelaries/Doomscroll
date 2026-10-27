@@ -18,33 +18,31 @@ func _ready() -> void:
 	clear_media_button.icon = EditorInterface.get_editor_theme().get_icon("Remove", "EditorIcons")
 	
 	# signals
-	poster_name.text_changed.connect(func(text): subpost.name = text)
-	poster_at.text_changed.connect(func(text): subpost.at = text)
-	post_content.text_changed.connect(func(): subpost.content = post_content.text)
-	pfp_picker.resource_changed.connect(func(res: Texture2D): subpost.poster_pfp = res)
-	media_picker.resource_changed.connect(func(res: Texture2D): subpost.media = res)
-	clear_media_button.pressed.connect(func(): media_picker.edited_resource = null; subpost.media = null)
+	poster_name.text_changed.connect(func(text):
+			DoomscrollPluginUndoRedo.set_property(subpost, &"name", text, "Edit name", true))
+	poster_at.text_changed.connect(func(text):
+			DoomscrollPluginUndoRedo.set_property(subpost, &"at", text, "Edit @", true))
+	post_content.text_changed.connect(func():
+			DoomscrollPluginUndoRedo.set_property(subpost, &"content", post_content.text, "Edit subpost", true))
+	pfp_picker.resource_changed.connect(func(res: Texture2D):
+			DoomscrollPluginUndoRedo.set_property(subpost, &"poster_pfp", res, "Change poster_pfp"))
+	media_picker.resource_changed.connect(func(res: Texture2D):
+			DoomscrollPluginUndoRedo.set_property(subpost, &"media", res, "Change media"))
+	clear_media_button.pressed.connect(func():
+			DoomscrollPluginUndoRedo.set_property(subpost, &"media", null, "Clear media"))
 
 
 func _update_post() -> void:
 	if not subpost or not poster_at:
 		return
 	
-	poster_at.text = subpost.at
-	poster_name.text = subpost.name
-	post_content.text = subpost.content
-	pfp_picker.edited_resource = subpost.poster_pfp
-	media_picker.edited_resource = subpost.media
-
-
-func _set_subpost(new_value: SubPostResource) -> void:
-	subpost = new_value
-	_update_post()
-
-
-func _on_edit_media_button_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_delete_media_button_pressed() -> void:
-	pass # Replace with function body.
+	if poster_at.text != subpost.at:
+		poster_at.text = subpost.at
+	if poster_name.text != subpost.name:
+		poster_name.text = subpost.name
+	if post_content.text != subpost.content:
+		post_content.text = subpost.content
+	if pfp_picker.edited_resource != subpost.poster_pfp:
+		pfp_picker.edited_resource = subpost.poster_pfp
+	if media_picker.edited_resource != subpost.media:
+		media_picker.edited_resource = subpost.media

@@ -3,14 +3,8 @@
 [ext_resource type="Script" uid="uid://djtkhyfi7e7w5" path="res://global_scripts/posts_resources_scripts/post_resource.gd" id="1_vl5v5"]
 [ext_resource type="Resource" uid="uid://bqwyjurn3rbed" path="res://data/exemple_post.tres" id="2_f0uml"]
 [ext_resource type="Script" uid="uid://csmxg56peer56" path="res://global_scripts/posts_resources_scripts/post_list_resource.gd" id="3_pgf45"]
-[ext_resource type="Script" uid="uid://byaokrvc2e5cf" path="res://global_scripts/posts_resources_scripts/answer_resource.gd" id="3_tykjm"]
-[ext_resource type="Texture2D" uid="uid://3ru8b8e5283r" path="res://assets/posters_pfp/rems_pfp.png" id="4_as8xy"]
-
-[sub_resource type="Resource" id="Resource_pgf45"]
-script = ExtResource("1_vl5v5")
-poster_pfp = ExtResource("4_as8xy")
 
 [resource]
 script = ExtResource("3_pgf45")
-posts = Array[ExtResource("1_vl5v5")]([ExtResource("2_f0uml"), SubResource("Resource_pgf45")])
+posts = Array[ExtResource("1_vl5v5")]([ExtResource("2_f0uml")])
 metadata/_custom_type_script = "uid://csmxg56peer56"

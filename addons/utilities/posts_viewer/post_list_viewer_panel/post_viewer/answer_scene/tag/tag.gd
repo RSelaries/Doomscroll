@@ -2,7 +2,7 @@
 extends PanelContainer
 
 
-signal tag_deleted(tag: String)
+signal tag_deleted()
 signal tag_changed(tag: String, new_value: String)
 
 
@@ -10,12 +10,7 @@ signal tag_changed(tag: String, new_value: String)
 @onready var tag_line_edit: LineEdit = %TagLineEdit
 
 
-var tag: String:
-	set(value):
-		tag_changed.emit(tag, value)
-		if tag_line_edit and tag_line_edit.text != value:
-			tag_line_edit.text = value
-		tag = value
+var tag: String
 
 
 func _ready() -> void:
@@ -23,5 +18,10 @@ func _ready() -> void:
 	tag_line_edit.text = tag
 	
 	# signals
-	tag_line_edit.text_changed.connect(func(text): tag = text)
-	delete_tag_button.pressed.connect(func(): tag_deleted.emit(tag); queue_free())
+	tag_line_edit.text_changed.connect(func(text): tag_changed.emit(text))
+	delete_tag_button.pressed.connect(func(): tag_deleted.emit())
+
+
+func set_text_no_signal(text: String) -> void:
+	if tag_line_edit.text != text:
+		tag_line_edit.text = text

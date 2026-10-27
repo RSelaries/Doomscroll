@@ -25,6 +25,8 @@ func update() -> void:
 	for child in posts_container.get_children():
 		child.queue_free()
 	
+	if not post_list: return
+	
 	for post in post_list.posts:
 		var new_post: PostViewer = POST_VIEWER_SCENE.instantiate()
 		new_post.post = post
@@ -33,14 +35,12 @@ func update() -> void:
 
 
 func _on_add_post_button_pressed() -> void:
-	var new_post := PostResource.new()
-	var new_post_scene: PostViewer = POST_VIEWER_SCENE.instantiate()
-	new_post_scene.post = new_post
-	new_post_scene.post_deleted.connect(_on_post_deleted)
-	posts_container.add_child(new_post_scene)
-	post_list.posts.append(new_post)
+	var posts: Array[PostResource] = post_list.posts.duplicate()
+	posts.append(PostResource.new())
+	DoomscrollPluginUndoRedo.set_property(post_list, &"posts", posts, "Add post")
 
 
 func _on_post_deleted(post: PostResource) -> void:
-	post_list.posts.erase(post)
-	print(post_list.posts)
+	var posts: Array[PostResource] = post_list.posts.duplicate()
+	posts.erase(post)
+	DoomscrollPluginUndoRedo.set_property(post_list, &"posts", posts, "Add post")
