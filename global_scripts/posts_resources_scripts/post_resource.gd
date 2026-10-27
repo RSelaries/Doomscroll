@@ -11,8 +11,6 @@ extends Resource
 @export var media: Texture2D
 @export var likes: int
 @export var dislikes: int
-@export_group("SubPost")
-@export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var has_subpost: bool = false
 @export var subpost: SubPostResource
 @export_group("Answers")
 @export var answers: Array[AnswerResource]

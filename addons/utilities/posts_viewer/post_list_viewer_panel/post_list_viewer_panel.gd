@@ -43,4 +43,4 @@ func _on_add_post_button_pressed() -> void:
 func _on_post_deleted(post: PostResource) -> void:
 	var posts: Array[PostResource] = post_list.posts.duplicate()
 	posts.erase(post)
-	DoomscrollPluginUndoRedo.set_property(post_list, &"posts", posts, "Add post")
+	DoomscrollPluginUndoRedo.set_property(post_list, &"posts", posts, "Delete post")

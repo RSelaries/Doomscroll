@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cue04kedc0wcx" path="res://assets/posts_medias/rdm_posts/dofus.png" id="2_veopx"]
 [ext_resource type="Script" uid="uid://djtkhyfi7e7w5" path="res://global_scripts/posts_resources_scripts/post_resource.gd" id="2_vr8qn"]
 [ext_resource type="Texture2D" uid="uid://dp0md3aotwwaw" path="res://assets/posters_pfp/atvn_pfp.png" id="3_cgenf"]
-[ext_resource type="Resource" uid="uid://7oea6k0mp22n" path="res://data/exemple_subpost.tres" id="4_veopx"]
 
 [sub_resource type="Resource" id="Resource_gt2hs"]
 script = ExtResource("1_nfjim")
@@ -17,7 +16,10 @@ metadata/_custom_type_script = "uid://byaokrvc2e5cf"
 
 [sub_resource type="Resource" id="Resource_cgenf"]
 script = ExtResource("1_nfjim")
-content = "ca pue du cul dofus"
+content = "ca pue du cul doufus"
+add_followers_amount = 2
+add_likes_amount = 12
+add_dislikes_amount = 5
 add_tags = PackedStringArray("jeu-vidéo", "négatif")
 
 [resource]
@@ -28,9 +30,6 @@ poster_pfp = ExtResource("3_cgenf")
 content = "Vous trouvez pas que Doufus c'est goated la miff ?
 [ht]#doufus[/ht] [ht]#sirius[/ht] [ht]#ceciestunpost[/ht]"
 media = ExtResource("2_veopx")
-likes = 67.0
 dislikes = 5
-has_subpost = true
-subpost = ExtResource("4_veopx")
 answers = Array[ExtResource("1_nfjim")]([SubResource("Resource_gt2hs"), SubResource("Resource_cgenf")])
 metadata/_custom_type_script = "uid://djtkhyfi7e7w5"

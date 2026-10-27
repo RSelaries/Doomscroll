@@ -20,9 +20,13 @@ static func set_property(target: Resource, property: StringName, value: Variant,
 		action_name += " [%d]" % target.get_instance_id()
 	
 	manager.create_action(action_name, mode, context)
+	manager.force_fixed_history()
 	manager.add_do_property(target, property, value)
+	manager.force_fixed_history()
 	manager.add_undo_property(target, property, previous_value)
+	manager.force_fixed_history()
 	manager.add_do_method(target, "emit_changed")
+	manager.force_fixed_history()
 	manager.add_undo_method(target, "emit_changed")
 	manager.commit_action()
 

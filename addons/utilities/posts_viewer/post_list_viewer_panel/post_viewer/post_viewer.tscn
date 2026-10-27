@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://bcfxjam2iew3h"]
 
 [ext_resource type="Script" uid="uid://bqsd58g140rle" path="res://addons/utilities/posts_viewer/post_list_viewer_panel/post_viewer/post_viewer.gd" id="1_macx7"]
-[ext_resource type="Resource" uid="uid://bqwyjurn3rbed" path="res://data/exemple_post.tres" id="2_w8quc"]
+[ext_resource type="Script" uid="uid://d2tedgbtb0ep8" path="res://global_scripts/posts_resources_scripts/subpost_resource.gd" id="3_wd55q"]
 [ext_resource type="PackedScene" uid="uid://bv8sti4txhbgp" path="res://addons/utilities/posts_viewer/post_list_viewer_panel/post_viewer/subpost_scene/subpost_scene.tscn" id="6_p6yo4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oipj3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
 bg_color = Color(0.11, 0.11, 0.11, 0.22352941)
 border_width_left = 1
 border_width_top = 1
@@ -18,8 +22,24 @@ corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_macx7"]
 
-[sub_resource type="DPITexture" id="DPITexture_uuw3f"]
-_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"m5 1v1h-4v2h14v-2h-4v-1zm-3 4v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8zm1 2h2v6h-2zm4 0h2v6h-2zm4 0h2v6h-2z\"/></svg>
+[sub_resource type="DPITexture" id="DPITexture_wd55q"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"m8 1a1 1 0 0 0 -1 1v5h-2c-1.108 0-2 .892-2 2v1h10v-1c0-1.108-.892-2-2-2h-2v-5a1 1 0 0 0 -1-1zm-5 10v4l10-1v-3z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_w8quc"]
+
+[sub_resource type="Resource" id="Resource_uuw3f"]
+script = ExtResource("3_wd55q")
+poster_pfp = SubResource("PlaceholderTexture2D_w8quc")
+
+[sub_resource type="DPITexture" id="DPITexture_w8quc"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"m7 1v6h-6v2h6v6h2v-6h6v-2h-6v-6z\"/></svg>
 "
 saturation = 2.0
 color_map = {
@@ -72,65 +92,70 @@ border_color = Color(0.16385436, 0.56125087, 0.7019531, 1)
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="PostScene" type="HBoxContainer" unique_id=2077175487]
+[sub_resource type="DPITexture" id="DPITexture_uuw3f"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"m5 1v1h-4v2h14v-2h-4v-1zm-3 4v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8zm1 2h2v6h-2zm4 0h2v6h-2zm4 0h2v6h-2z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[node name="PostScene" type="PanelContainer" unique_id=413602532]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_right = 420.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_macx7")
-post = ExtResource("2_w8quc")
-
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=413602532]
-layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_oipj3")
+script = ExtResource("1_macx7")
 
-[node name="SplitContainer" type="MarginContainer" parent="PanelContainer" unique_id=404688734]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1638686351]
+layout_mode = 2
+
+[node name="SplitContainer" type="MarginContainer" parent="HBoxContainer" unique_id=404688734]
 custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/SplitContainer" unique_id=730158175]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/SplitContainer" unique_id=730158175]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 16
+theme_override_constants/separation = 4
 alignment = 1
 
-[node name="HBoxContainer2" type="SplitContainer" parent="PanelContainer/SplitContainer/VBoxContainer" unique_id=1394491973]
+[node name="HBoxContainer2" type="SplitContainer" parent="HBoxContainer/SplitContainer/VBoxContainer" unique_id=1394491973]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2" unique_id=956519856]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2" unique_id=956519856]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
-theme_override_constants/separation = 16
+theme_override_constants/separation = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=331509018]
+[node name="HBoxContainer" type="FlowContainer" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=554015919]
 layout_mode = 2
-theme_override_constants/separation = 16
 
-[node name="PfpPicker" type="EditorResourcePicker" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=2021191393]
+[node name="PfpPicker" type="EditorResourcePicker" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=2021191393]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 base_type = "Texture2D"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1087507180]
-custom_minimum_size = Vector2(150, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1087507180]
 layout_mode = 2
 alignment = 1
 
-[node name="PosterName" type="LineEdit" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1276024358]
+[node name="PosterName" type="LineEdit" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1276024358]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_macx7")
@@ -139,7 +164,7 @@ clear_button_enabled = true
 caret_blink = true
 caret_blink_interval = 0.5
 
-[node name="PosterAt" type="LineEdit" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=316972143]
+[node name="PosterAt" type="LineEdit" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=316972143]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_macx7")
@@ -148,28 +173,36 @@ clear_button_enabled = true
 caret_blink = true
 caret_blink_interval = 0.5
 
-[node name="VSeparator" type="VSeparator" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1959428082]
+[node name="Spacer" type="Control" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1994023186]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1959428082]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="PostStats" type="VBoxContainer" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=2086134606]
+[node name="Spacer2" type="Control" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=243132212]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PostStats" type="VBoxContainer" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=2086134606]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 alignment = 1
 
-[node name="Likes" type="HBoxContainer" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PostStats" unique_id=406354171]
+[node name="Likes" type="HBoxContainer" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PostStats" unique_id=406354171]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PostStats/Likes" unique_id=806457710]
+[node name="Label" type="Label" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PostStats/Likes" unique_id=806457710]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxEmpty_macx7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_macx7")
 text = "Likes: "
 
-[node name="LikesAmount" type="EditorSpinSlider" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PostStats/Likes" unique_id=1835066241]
+[node name="LikesAmount" type="EditorSpinSlider" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PostStats/Likes" unique_id=1835066241]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -178,18 +211,18 @@ value = 67.0
 allow_greater = true
 editing_integer = true
 
-[node name="Dislikes" type="HBoxContainer" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PostStats" unique_id=480183241]
+[node name="Dislikes" type="HBoxContainer" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PostStats" unique_id=480183241]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PostStats/Dislikes" unique_id=1731098029]
+[node name="Label" type="Label" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PostStats/Dislikes" unique_id=1731098029]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxEmpty_macx7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_macx7")
 text = "Dislikes: "
 
-[node name="DislikesAmount" type="EditorSpinSlider" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PostStats/Dislikes" unique_id=986025532]
+[node name="DislikesAmount" type="EditorSpinSlider" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PostStats/Dislikes" unique_id=986025532]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -198,25 +231,37 @@ value = 5.0
 allow_greater = true
 editing_integer = true
 
-[node name="VSeparator2" type="VSeparator" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=573660969]
+[node name="Spacer3" type="Control" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1065977892]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=573660969]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="ClearMediaButton" type="Button" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1543964765]
+[node name="Spacer4" type="Control" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=22397974]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=588933861]
+layout_mode = 2
+
+[node name="ClearMediaButton" type="Button" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1543964765]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-icon = SubResource("DPITexture_uuw3f")
+theme_type_variation = &"FlatButton"
+icon = SubResource("DPITexture_wd55q")
 
-[node name="MediaPicker" type="EditorResourcePicker" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=754899322]
+[node name="MediaPicker" type="EditorResourcePicker" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=754899322]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 base_type = "Texture2D"
 
-[node name="PostContent" type="TextEdit" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=22432920]
+[node name="PostContent" type="TextEdit" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=22432920]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Vous trouvez pas que Doufus c'est goated la miff ?
@@ -224,11 +269,25 @@ text = "Vous trouvez pas que Doufus c'est goated la miff ?
 wrap_mode = 1
 scroll_fit_content_height = true
 
-[node name="SubpostScene" parent="PanelContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=885706482 instance=ExtResource("6_p6yo4")]
-unique_name_in_owner = true
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=360333883]
 layout_mode = 2
 
-[node name="FoldableContainer" type="FoldableContainer" parent="PanelContainer/SplitContainer/VBoxContainer" unique_id=1936865765]
+[node name="SubpostScene" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2" unique_id=885706482 instance=ExtResource("6_p6yo4")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+subpost = SubResource("Resource_uuw3f")
+
+[node name="AddSubpostButton" type="Button" parent="HBoxContainer/SplitContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2" unique_id=1700015913]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+text = "Ajouter un sous-post"
+icon = SubResource("DPITexture_w8quc")
+
+[node name="FoldableContainer" type="FoldableContainer" parent="HBoxContainer/SplitContainer/VBoxContainer" unique_id=1936865765]
 layout_mode = 2
 theme_override_styles/title_panel = SubResource("StyleBoxFlat_50u8n")
 theme_override_styles/title_hover_panel = SubResource("StyleBoxFlat_50u8n")
@@ -239,15 +298,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_bggnu")
 folded = true
 title = "Réponses"
 
-[node name="AnswersContainer" type="HFlowContainer" parent="PanelContainer/SplitContainer/VBoxContainer/FoldableContainer" unique_id=1864943162]
+[node name="AnswersContainer" type="HFlowContainer" parent="HBoxContainer/SplitContainer/VBoxContainer/FoldableContainer" unique_id=1864943162]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DeletePostButton" type="Button" parent="." unique_id=44770771]
+[node name="DeletePostButton" type="Button" parent="HBoxContainer" unique_id=44770771]
 unique_name_in_owner = true
 layout_mode = 2
 icon = SubResource("DPITexture_uuw3f")
-
-[connection signal="pressed" from="DeletePostButton" to="." method="_on_delete_post_button_pressed"]

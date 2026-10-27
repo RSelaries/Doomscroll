@@ -23,13 +23,15 @@ signal post_deleted(post: PostResource)
 @onready var media_picker: EditorResourcePicker = %MediaPicker
 @onready var clear_media_button: Button = %ClearMediaButton
 @onready var pfp_picker: EditorResourcePicker = %PfpPicker
+@onready var add_subpost_button: Button = %AddSubpostButton
 
 
 func _ready() -> void:
 	if post:
 		_update_post()
 	delete_post_button.icon = EditorInterface.get_editor_theme().get_icon("Remove", "EditorIcons")
-	clear_media_button.icon = EditorInterface.get_editor_theme().get_icon("Remove", "EditorIcons")
+	clear_media_button.icon = EditorInterface.get_editor_theme().get_icon("Clear", "EditorIcons")
+	add_subpost_button.icon = EditorInterface.get_editor_theme().get_icon("Add", "EditorIcons")
 	
 	var new_answer_button := Button.new()
 	new_answer_button.icon = EditorInterface.get_editor_theme().get_icon("Add", "EditorIcons")
@@ -56,6 +58,11 @@ func _ready() -> void:
 			DoomscrollPluginUndoRedo.set_property(post, &"media", null, "Clear media"))
 	pfp_picker.resource_changed.connect(func(res: Texture2D):
 			DoomscrollPluginUndoRedo.set_property(post, &"poster_pfp", res, "Change poster_pfp"))
+	add_subpost_button.pressed.connect(func():
+			DoomscrollPluginUndoRedo.set_property(post, &"subpost", SubPostResource.new(), "Add subpost"))
+	subpost_scene.subpost_deleted.connect(func():
+			DoomscrollPluginUndoRedo.set_property(post, &"subpost", null, "Delete subpost"))
+	delete_post_button.pressed.connect(post_deleted.emit.bind(post))
 
 
 func _update_post() -> void:
@@ -79,8 +86,10 @@ func _update_post() -> void:
 	if post.subpost:
 		subpost_scene.show()
 		subpost_scene.subpost = post.subpost
+		add_subpost_button.hide()
 	else :
 		subpost_scene.hide()
+		add_subpost_button.show()
 	
 	if answers_container.get_child_count() != post.answers.size():
 		for child in answers_container.get_children():
@@ -106,7 +115,3 @@ func _on_answer_deleted(answer: AnswerResource) -> void:
 	var answers: Array[AnswerResource] = post.answers.duplicate()
 	answers.erase(answer)
 	DoomscrollPluginUndoRedo.set_property(post, &"answers", answers, "Delete answer")
-
-
-func _on_delete_post_button_pressed() -> void:
-	post_deleted.emit(post)

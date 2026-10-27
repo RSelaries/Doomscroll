@@ -2,6 +2,9 @@
 extends Control
 
 
+signal subpost_deleted
+
+
 @export var subpost: SubPostResource
 
 
@@ -11,13 +14,16 @@ extends Control
 @onready var pfp_picker: EditorResourcePicker = %PfpPicker
 @onready var media_picker: EditorResourcePicker = %MediaPicker
 @onready var clear_media_button: Button = %ClearMediaButton
+@onready var delete_subpost_button: Button = %DeleteSubpostButton
 
 
 func _ready() -> void:
 	_update_post()
-	clear_media_button.icon = EditorInterface.get_editor_theme().get_icon("Remove", "EditorIcons")
+	clear_media_button.icon = EditorInterface.get_editor_theme().get_icon("Clear", "EditorIcons")
+	delete_subpost_button.icon = EditorInterface.get_editor_theme().get_icon("Remove", "EditorIcons")
 	
 	# signals
+	delete_subpost_button.pressed.connect(subpost_deleted.emit)
 	poster_name.text_changed.connect(func(text):
 			DoomscrollPluginUndoRedo.set_property(subpost, &"name", text, "Edit name", true))
 	poster_at.text_changed.connect(func(text):
