@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cue04kedc0wcx" path="res://assets/posts_medias/rdm_posts/dofus.png" id="4_dtojf"]
 [ext_resource type="Texture2D" uid="uid://bgy2axr4eyg5g" path="res://assets/icons/dislike.svg" id="4_qelek"]
 [ext_resource type="PackedScene" uid="uid://cytqdwuwur5wu" path="res://ui/post_scene/subpost_scene/subpost_scene.tscn" id="5_r1e7v"]
-[ext_resource type="Script" uid="uid://d2tedgbtb0ep8" path="res://global_scripts/posts_resources_scripts/subpost_resource.gd" id="7_a0qew"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cjof"]
 corner_radius_top_left = 1000
@@ -19,14 +18,6 @@ corner_radius_bottom_left = 1000
 [sub_resource type="RichTextEffect" id="RichTextEffect_qelek"]
 script = ExtResource("3_qelek")
 metadata/_custom_type_script = "uid://csgorma3aiyid"
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mt6k6"]
-
-[sub_resource type="Resource" id="Resource_etdnm"]
-script = ExtResource("7_a0qew")
-name = "dzdzqdq"
-at = "Azdqdzqddzqd zqdqzd"
-poster_pfp = SubResource("PlaceholderTexture2D_mt6k6")
 
 [node name="PostScene" type="ScrollContainer" unique_id=1734324127]
 anchors_preset = 15
@@ -101,29 +92,29 @@ custom_effects = [SubResource("RichTextEffect_qelek")]
 
 [node name="MediaContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=2036607296]
 clip_children = 2
+custom_maximum_size = Vector2(-1, 300)
 layout_mode = 2
+size_flags_vertical = 3
 theme_type_variation = &"MediaContainer"
 
 [node name="PostMedia" type="TextureRect" parent="MarginContainer/VBoxContainer/MediaContainer" unique_id=1353644076]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 texture = ExtResource("4_dtojf")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=798289818]
-layout_mode = 2
-
-[node name="SubpostScene" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=885706482 instance=ExtResource("5_r1e7v")]
+[node name="SubpostScene" parent="MarginContainer/VBoxContainer" unique_id=885706482 instance=ExtResource("5_r1e7v")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
-subpost = SubResource("Resource_etdnm")
 
 [node name="PostStats" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1215891780]
 layout_mode = 2
-theme_override_constants/separation = 80
-alignment = 1
+theme_override_constants/separation = 40
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/PostStats" unique_id=498091362]
+layout_mode = 2
 
 [node name="Likes" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PostStats" unique_id=406354171]
 layout_mode = 2
@@ -137,7 +128,7 @@ texture = ExtResource("3_5cade")
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"PostStats"
-text = "0"
+text = "67.0"
 
 [node name="Dislikes" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PostStats" unique_id=480183241]
 layout_mode = 2

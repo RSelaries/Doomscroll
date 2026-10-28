@@ -33,9 +33,11 @@ Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
 }
 
 [node name="PostsViewer" type="VBoxContainer" unique_id=753257574]
-offset_top = 4.0
-offset_right = 576.0
-offset_bottom = 1020.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_m62s8")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1587840092]
@@ -90,7 +92,6 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 4
-theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer2" unique_id=884772544]

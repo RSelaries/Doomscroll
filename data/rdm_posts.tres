@@ -3,8 +3,28 @@
 [ext_resource type="Script" uid="uid://djtkhyfi7e7w5" path="res://global_scripts/posts_resources_scripts/post_resource.gd" id="1_vl5v5"]
 [ext_resource type="Resource" uid="uid://bqwyjurn3rbed" path="res://data/exemple_post.tres" id="2_f0uml"]
 [ext_resource type="Script" uid="uid://csmxg56peer56" path="res://global_scripts/posts_resources_scripts/post_list_resource.gd" id="3_pgf45"]
+[ext_resource type="Script" uid="uid://byaokrvc2e5cf" path="res://global_scripts/posts_resources_scripts/answer_resource.gd" id="3_tykjm"]
+[ext_resource type="Texture2D" uid="uid://3ru8b8e5283r" path="res://assets/posters_pfp/rems_pfp.png" id="4_pgf45"]
+
+[sub_resource type="Resource" id="Resource_tykjm"]
+script = ExtResource("3_tykjm")
+content = "Je peux escalader avec toi ? 👉👈"
+
+[sub_resource type="Resource" id="Resource_as8xy"]
+script = ExtResource("3_tykjm")
+content = "Maintenant vous le faites dans des lieux publics..."
+
+[sub_resource type="Resource" id="Resource_b0lhe"]
+script = ExtResource("1_vl5v5")
+name = "Rems"
+at = "petitpatron"
+poster_pfp = ExtResource("4_pgf45")
+content = "Imagine t'escalade avec ton meilleur ami et il t'embrasse [ht]#mlm[/ht]"
+likes = 256
+dislikes = 28
+answers = Array[ExtResource("3_tykjm")]([SubResource("Resource_tykjm"), SubResource("Resource_as8xy")])
 
 [resource]
 script = ExtResource("3_pgf45")
-posts = Array[ExtResource("1_vl5v5")]([ExtResource("2_f0uml")])
+posts = Array[ExtResource("1_vl5v5")]([ExtResource("2_f0uml"), SubResource("Resource_b0lhe")])
 metadata/_custom_type_script = "uid://csmxg56peer56"
