@@ -19,12 +19,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer" unique_id=620962998]
+[node name="Stats" type="PanelContainer" parent="VBoxContainer" unique_id=620962998]
 layout_mode = 2
 
 [node name="PostScene" parent="VBoxContainer" unique_id=1734324127 instance=ExtResource("1_jx862")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=742123685]
+[node name="NavBar" type="PanelContainer" parent="VBoxContainer" unique_id=742123685]
 layout_mode = 2

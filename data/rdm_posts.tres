@@ -12,6 +12,7 @@ script = ExtResource("3_tykjm")
 content = "Je peux escalader avec toi ? 👉👈"
 add_followers_amount = 3.0
 add_likes_amount = 26.0
+add_dislikes_amount = 4.0
 add_tags = PackedStringArray("humour")
 
 [sub_resource type="Resource" id="Resource_as8xy"]
@@ -19,6 +20,7 @@ script = ExtResource("3_tykjm")
 content = "Maintenant vous le faites dans des lieux publics..."
 add_followers_amount = 2.0
 add_likes_amount = 45.0
+add_dislikes_amount = 25.0
 add_tags = PackedStringArray("homophobie")
 
 [sub_resource type="Resource" id="Resource_b0lhe"]
@@ -33,7 +35,6 @@ answers = Array[ExtResource("3_tykjm")]([SubResource("Resource_tykjm"), SubResou
 
 [sub_resource type="Resource" id="Resource_pgf45"]
 script = ExtResource("1_vl5v5")
-poster_pfp = ExtResource("5_tykjm")
 
 [resource]
 script = ExtResource("3_pgf45")
