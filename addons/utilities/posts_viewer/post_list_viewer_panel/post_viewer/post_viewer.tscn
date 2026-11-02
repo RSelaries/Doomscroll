@@ -160,6 +160,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_macx7")
 text = "AT4VN"
+placeholder_text = "name"
 clear_button_enabled = true
 caret_blink = true
 caret_blink_interval = 0.5
@@ -169,6 +170,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_macx7")
 text = "atvn_bg"
+placeholder_text = "@"
 clear_button_enabled = true
 caret_blink = true
 caret_blink_interval = 0.5
@@ -266,6 +268,7 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Vous trouvez pas que Doufus c'est goated la miff ?
 [ht]#doufus[/ht] [ht]#sirius[/ht] [ht]#ceciestunpost[/ht]"
+placeholder_text = "Post Content"
 wrap_mode = 1
 scroll_fit_content_height = true
 
