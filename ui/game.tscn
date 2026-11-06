@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://q42wwas4njos"]
+
+[ext_resource type="PackedScene" uid="uid://bgkgdqxyqbqkc" path="res://ui/conversations_tab/conversations_tab.tscn" id="1_h517a"]
+[ext_resource type="Texture2D" uid="uid://c4dh05dkjafji" path="res://assets/icons/send.svg" id="1_rg8gd"]
+
+[node name="Game" type="Control" unique_id=438146337]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainAppTabs" type="TabContainer" parent="." unique_id=1687786878]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"MainAppTabs"
+current_tab = 0
+tabs_visible = false
+tab_0/icon = ExtResource("1_rg8gd")
+
+[node name="ConversationsTab" parent="MainAppTabs" unique_id=942528645 instance=ExtResource("1_h517a")]
+layout_mode = 2
+metadata/_tab_index = 0
+metadata/_tab_name = ""
+
+[node name="Control" type="Control" parent="MainAppTabs" unique_id=1482662244]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
