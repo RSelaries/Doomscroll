@@ -2,6 +2,9 @@ class_name SubPostResource
 extends Resource
 
 
+const PROPERTIES = ["name", "at", "poster_pfp", "content", "media"]
+
+
 @export var name: String
 @export var at: String
 @export_multiline var content: String

@@ -1,0 +1,281 @@
+[gd_scene format=3 uid="uid://b3obcmk388q04"]
+
+[ext_resource type="Script" uid="uid://bmtpppm76fpwu" path="res://addons/utilities/correspondences_dialog/correspondences_dialog.gd" id="1_nwkrq"]
+
+[node name="CorrespondencesDialog" type="AcceptDialog" unique_id=454141577]
+oversampling_override = 1.0
+title = "Header Correspondences"
+initial_position = 1
+size = Vector2i(1000, 334)
+visible = true
+ok_button_text = "Valider"
+script = ExtResource("1_nwkrq")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1510168012]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 992.0
+offset_bottom = 281.0
+
+[node name="PostResource" type="FoldableContainer" parent="VBoxContainer" unique_id=766904462]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+title = "PostResource"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PostResource" unique_id=1547912020]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PostResource/VBoxContainer" unique_id=949800414]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PostResource/VBoxContainer/HBoxContainer" unique_id=878790008]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "name"
+
+[node name="PostName" type="OptionButton" parent="VBoxContainer/PostResource/VBoxContainer/HBoxContainer" unique_id=359866155]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PostResource/VBoxContainer" unique_id=2059623852]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PostResource/VBoxContainer/HBoxContainer2" unique_id=778176252]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "at"
+
+[node name="PostAt" type="OptionButton" parent="VBoxContainer/PostResource/VBoxContainer/HBoxContainer2" unique_id=1667040235]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/PostResource/VBoxContainer" unique_id=137309323]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PostResource/VBoxContainer/HBoxContainer3" unique_id=18179912]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "likes"
+
+[node name="PostLikes" type="OptionButton" parent="VBoxContainer/PostResource/VBoxContainer/HBoxContainer3" unique_id=674402058]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/PostResource/VBoxContainer" unique_id=2142416855]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PostResource/VBoxContainer/HBoxContainer4" unique_id=352020146]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "dislikes"
+
+[node name="PostDislikes" type="OptionButton" parent="VBoxContainer/PostResource/VBoxContainer/HBoxContainer4" unique_id=559035187]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/PostResource/VBoxContainer" unique_id=778943642]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PostResource/VBoxContainer/HBoxContainer5" unique_id=1717099176]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "content"
+
+[node name="PostContent" type="OptionButton" parent="VBoxContainer/PostResource/VBoxContainer/HBoxContainer5" unique_id=234333152]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer/PostResource/VBoxContainer" unique_id=1728715926]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PostResource/VBoxContainer/HBoxContainer6" unique_id=1843287948]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "media"
+
+[node name="PostMedia" type="OptionButton" parent="VBoxContainer/PostResource/VBoxContainer/HBoxContainer6" unique_id=810194104]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer/PostResource/VBoxContainer" unique_id=1804888437]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PostResource/VBoxContainer/HBoxContainer7" unique_id=1235864687]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "poster_pfp"
+
+[node name="PostPfp" type="OptionButton" parent="VBoxContainer/PostResource/VBoxContainer/HBoxContainer7" unique_id=1587289884]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubPostResource" type="FoldableContainer" parent="VBoxContainer" unique_id=1086910305]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+title = "SubPostResource"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/SubPostResource" unique_id=1967621519]
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/SubPostResource/VBoxContainer" unique_id=1842343422]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SubPostResource/VBoxContainer/HBoxContainer5" unique_id=1006749396]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "content"
+
+[node name="SubPostContent" type="OptionButton" parent="VBoxContainer/SubPostResource/VBoxContainer/HBoxContainer5" unique_id=556368578]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/SubPostResource/VBoxContainer" unique_id=1059059434]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SubPostResource/VBoxContainer/HBoxContainer" unique_id=461290712]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "name"
+
+[node name="SubPostName" type="OptionButton" parent="VBoxContainer/SubPostResource/VBoxContainer/HBoxContainer" unique_id=12458622]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/SubPostResource/VBoxContainer" unique_id=2055466450]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SubPostResource/VBoxContainer/HBoxContainer2" unique_id=472032303]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "at"
+
+[node name="SubPostAt" type="OptionButton" parent="VBoxContainer/SubPostResource/VBoxContainer/HBoxContainer2" unique_id=694091674]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/SubPostResource/VBoxContainer" unique_id=839900022]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SubPostResource/VBoxContainer/HBoxContainer3" unique_id=1840175888]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "media"
+
+[node name="SubPostMedia" type="OptionButton" parent="VBoxContainer/SubPostResource/VBoxContainer/HBoxContainer3" unique_id=137855849]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/SubPostResource/VBoxContainer" unique_id=1241945191]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SubPostResource/VBoxContainer/HBoxContainer4" unique_id=713156231]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "poster_pfp"
+
+[node name="SubPostPfp" type="OptionButton" parent="VBoxContainer/SubPostResource/VBoxContainer/HBoxContainer4" unique_id=458260592]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AnswerResource" type="FoldableContainer" parent="VBoxContainer" unique_id=458297580]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+title = "AnswerResource"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/AnswerResource" unique_id=71539292]
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/AnswerResource/VBoxContainer" unique_id=1627740183]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/AnswerResource/VBoxContainer/HBoxContainer5" unique_id=317285082]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Nbr de réponses"
+
+[node name="AnswerAmount" type="EditorSpinSlider" parent="VBoxContainer/AnswerResource/VBoxContainer/HBoxContainer5" unique_id=2065544798]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 2.0
+editing_integer = true
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer/AnswerResource/VBoxContainer" unique_id=1650904438]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/AnswerResource/VBoxContainer/HBoxContainer6" unique_id=516161086]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "content"
+
+[node name="AnswerContent" type="LineEdit" parent="VBoxContainer/AnswerResource/VBoxContainer/HBoxContainer6" unique_id=813115387]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/AnswerResource/VBoxContainer" unique_id=363372607]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/AnswerResource/VBoxContainer/HBoxContainer" unique_id=1159589289]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "add_followers_amount"
+
+[node name="AnswerFollowers" type="LineEdit" parent="VBoxContainer/AnswerResource/VBoxContainer/HBoxContainer" unique_id=2109098582]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/AnswerResource/VBoxContainer" unique_id=360061964]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/AnswerResource/VBoxContainer/HBoxContainer2" unique_id=1716551255]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "add_likes_amount"
+
+[node name="AnswerLikes" type="LineEdit" parent="VBoxContainer/AnswerResource/VBoxContainer/HBoxContainer2" unique_id=1434682111]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/AnswerResource/VBoxContainer" unique_id=1634095016]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/AnswerResource/VBoxContainer/HBoxContainer3" unique_id=419932391]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "add_dislikes_amount"
+
+[node name="AnswerDislikes" type="LineEdit" parent="VBoxContainer/AnswerResource/VBoxContainer/HBoxContainer3" unique_id=1965104069]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/AnswerResource/VBoxContainer" unique_id=2144077095]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/AnswerResource/VBoxContainer/HBoxContainer4" unique_id=199008420]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "tags"
+
+[node name="AnswerTags" type="LineEdit" parent="VBoxContainer/AnswerResource/VBoxContainer/HBoxContainer4" unique_id=1769511002]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3

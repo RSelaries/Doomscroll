@@ -2,6 +2,12 @@ class_name PostResource
 extends Resource
 
 
+const PROPERTIES = [
+	"name", "at", "poster_pfp", "content", "media",
+	"likes", "dislikes", "subpost", "answers",
+]
+
+
 @export_group("Poster Infos")
 @export var name: String
 @export var at: String
