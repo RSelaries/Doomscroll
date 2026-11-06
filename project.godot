@@ -12,9 +12,53 @@ config_version=5
 
 config/name="doomscroll"
 config/features=PackedStringArray("4.8")
-config/icon="res://icon.svg"
+config/icon="uid://diauecomlc1s5"
+
+[autoload]
+
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+
+[dialogic]
+
+directories/dch_directory={}
+directories/dtl_directory={}
+layout/style_directory={}
+
+[dialogue_manager]
+
+runtime/balloon_path="res://ui/message_box/balloon.tscn"
+
+[display]
+
+window/size/viewport_width=648
+window/size/viewport_height=1152
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "yellow",
+"res://ui/": "green"
+}
+
+[gui]
+
+theme/custom="uid://dswfcuasl5l38"
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://dialogues/debug_dialogue.dialogue")
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.11764706, 0.11764706, 0.11764706, 1)

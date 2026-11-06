@@ -1,0 +1,33 @@
+[gd_resource type="Theme" format=3 uid="uid://dswfcuasl5l38"]
+
+[ext_resource type="FontFile" uid="uid://dd4ec0vjyl0cd" path="res://assets/fonts/nevermind/NeverMind-Regular.ttf" id="2_kr1bs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sx45"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8e3h"]
+content_margin_left = 25.0
+content_margin_top = 15.0
+content_margin_right = 25.0
+content_margin_bottom = 15.0
+bg_color = Color(0.14767197, 0.14767176, 0.14767179, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1156v"]
+
+[resource]
+default_font = ExtResource("2_kr1bs")
+default_font_size = 24
+HBoxContainer/constants/separation = 10
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+MessageBalloon/base_type = &"RichTextLabel"
+MessageBalloon/styles/normal = SubResource("StyleBoxFlat_6sx45")
+ResponseField/base_type = &"RichTextLabel"
+ResponseField/styles/normal = SubResource("StyleBoxFlat_j8e3h")
+TabContainer/styles/panel = SubResource("StyleBoxEmpty_1156v")
+VBoxContainer/constants/separation = 10

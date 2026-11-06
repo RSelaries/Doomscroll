@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bu6xxd45nj4w4"]
+
+[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/nodes/responses_menu/dialogue_responses_menu.gd" id="1_1eyfb"]
+[ext_resource type="Script" uid="uid://bc2xiv23rkwy3" path="res://ui/message_box/message_box.gd" id="1_nj3xn"]
+[ext_resource type="PackedScene" uid="uid://dc1p8h3s3wmwt" path="res://ui/message_box/message/message_scene.tscn" id="2_6sx45"]
+[ext_resource type="PackedScene" uid="uid://dhj733peqk47l" path="res://ui/message_box/response/response_scene.tscn" id="4_nj3xn"]
+
+[sub_resource type="Gradient" id="Gradient_6sx45"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.040268455, 1)
+colors = PackedColorArray(0.11764706, 0.11764706, 0.11764706, 1, 0.12, 0.12, 0.12, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e2ixq"]
+gradient = SubResource("Gradient_6sx45")
+height = 128
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="MessageBox" type="VBoxContainer" unique_id=1423778825]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("1_nj3xn")
+
+[node name="Control" type="Control" parent="." unique_id=993537588]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control" unique_id=85793929]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer" unique_id=1545440827]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MessagesContainer" type="VBoxContainer" parent="Control/ScrollContainer/MarginContainer" unique_id=1972094249]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Message" parent="Control/ScrollContainer/MarginContainer/MessagesContainer" unique_id=1965997725 instance=ExtResource("2_6sx45")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1313609909]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_e2ixq")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=495065059]
+layout_mode = 2
+
+[node name="ResponsesMenu" type="VBoxContainer" parent="MarginContainer" unique_id=2113888062 node_paths=PackedStringArray("response_template")]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("1_1eyfb")
+response_template = NodePath("ResponseExemple")
+
+[node name="ResponseExemple" parent="MarginContainer/ResponsesMenu" unique_id=1117666940 instance=ExtResource("4_nj3xn")]
+layout_mode = 2
+
+[node name="NoResponses" parent="MarginContainer" unique_id=1734821136 instance=ExtResource("4_nj3xn")]
+unique_name_in_owner = true
+layout_mode = 2
+is_placeholder = true
